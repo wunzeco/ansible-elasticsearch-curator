@@ -6,6 +6,9 @@ Ansible role to install and configure elasticsearch-curator.
 
 ## Examples
 
+For further configuration examples of actions, see
+https://www.elastic.co/guide/en/elasticsearch/client/curator/4.2/examples.html
+
 ```
 - hosts: eshost
 
