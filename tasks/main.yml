@@ -15,7 +15,6 @@
     name: elasticsearch-curator
     version: "{{ elasticsearch_curator_version }}"
     state: present
-  when: ansible_os_family|lower == 'debian'
 
 # Configuration files
 - name: Create elasticsearch-curator config dir
