@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 elasticsearch_curator_conf_dir = '/etc/elasticsearch-curator'
-elasticsearch_curator_cmd = "/usr/local/bin/curator --config #{elasticsearch_curator_conf_dir}/curator.yml #{elasticsearch_curator_conf_dir}/actions.yml"
+elasticsearch_curator_cmd = "curator --config #{elasticsearch_curator_conf_dir}/curator.yml #{elasticsearch_curator_conf_dir}/actions.yml"
 
 describe package('elasticsearch-curator') do
   it { should be_installed.by('pip') }
