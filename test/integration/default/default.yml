@@ -47,6 +47,7 @@
 
   vars:
     elasticsearch_curator_client_hosts: localhost
+    elasticsearch_curator_logging_logfile: /var/log/elasticsearch-curator.log
     elasticsearch_curator_actions:
       - action: delete_indices
         description: >-
