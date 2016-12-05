@@ -15,6 +15,7 @@ https://www.elastic.co/guide/en/elasticsearch/client/curator/4.2/examples.html
   vars:
     elasticsearch_curator_version: 4.2.3
     elasticsearch_curator_client_hosts: localhost
+    elasticsearch_curator_client_master_only: True    # if you want to curator to run ONLY on master
     elasticsearch_curator_actions:
       - action: delete_indices
         description: >-
@@ -25,7 +26,7 @@ https://www.elastic.co/guide/en/elasticsearch/client/curator/4.2/examples.html
           ignore_empty_list: True
           timeout_override:
           continue_if_exception: False
-          disable_action: True
+          disable_action: False
         filters:
           - filtertype: pattern
             kind: prefix
