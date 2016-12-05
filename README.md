@@ -10,7 +10,7 @@ Ansible role to install and configure elasticsearch-curator.
 - hosts: eshost
 
   vars:
-    elasticsearch_curator_version: 5.0.1
+    elasticsearch_curator_version: 4.2.3
     elasticsearch_curator_client_hosts: localhost
     elasticsearch_curator_actions:
       - action: delete_indices

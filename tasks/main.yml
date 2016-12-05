@@ -13,7 +13,7 @@
 - name: Install elasticsearch-curator
   pip: 
     name: elasticsearch-curator
-    version: "{{ elasticsearch_curator_version|default(omit) }}"
+    version: "{{ elasticsearch_curator_version }}"
     state: present
   when: ansible_os_family|lower == 'debian'
 

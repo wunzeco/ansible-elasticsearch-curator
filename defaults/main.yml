@@ -1,5 +1,7 @@
 ---
 
+elasticsearch_curator_version: 4.2.3
+
 elasticsearch_curator_conf_dir: /etc/elasticsearch-curator
 
 elasticsearch_curator_client_hosts: "{{ ansible_default_ipv4.address }}" # OR a list of hosts
