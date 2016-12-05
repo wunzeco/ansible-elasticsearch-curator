@@ -1,0 +1,17 @@
+---
+
+- name: Download and install kibana gpg public signing key
+  apt_key:
+    url:   "{{ kibana_signing_key_url }}"
+    state: present
+
+- name: Add kibana apt repository definition to apt sources list
+  apt_repository:
+    repo:         "{{ kibana_apt_repo }}"
+    update_cache: yes
+    state:        present
+
+- name: Install kibana
+  apt: 
+    name:  "kibana={{ kibana_version|default('*') }}"
+    state: present

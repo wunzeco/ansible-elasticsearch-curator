@@ -1,0 +1,28 @@
+---
+# Remember, leave a key empty if there is no value.  None will be a string,
+# not a Python "NoneType"
+client:
+{% if elasticsearch_curator_client_hosts is string %}
+  hosts: {{ elasticsearch_curator_client_hosts }}
+{% else %}
+  hosts: [ {{ elasticsearch_curator_client_hosts|join(',') }} ]
+{% endif %}
+  port: {{ elasticsearch_curator_client_port|default(9200) }}
+  url_prefix: {{ elasticsearch_curator_client_use_prefix|default('') }}
+  use_ssl: {{ elasticsearch_curator_client_use_ssl|default(False) }}
+  certificate: {{ elasticsearch_curator_client_certificate|default('') }}
+  client_cert: {{ elasticsearch_curator_client_client_cert|default('') }}
+  client_key: {{ elasticsearch_curator_client_client_cert|default('') }}
+  aws_key: {{ elasticsearch_curator_client_aws_key|default('') }}
+  aws_secret_key: {{ elasticsearch_curator_client_aws_secret_key|default('') }}
+  aws_region: {{ elasticsearch_curator_client_aws_region|default('') }}
+  ssl_no_validate: {{ elasticsearch_curator_client_ssl_no_validation|default(False) }}
+  http_auth: {{ elasticsearch_curator_client_http_auth|default('') }}
+  timeout: {{ elasticsearch_curator_client_timeout|default(30) }}
+  master_only: {{ elasticsearch_curator_client_master_only|default(False) }}
+
+logging:
+  loglevel: {{ elasticsearch_curator_logging_loglevel|default('INFO') }}
+  logfile: {{ elasticsearch_curator_logging_logfile|default('') }}
+  logformat: {{ elasticsearch_curator_logging_logformat|default('default') }}
+  blacklist: [ '{{ elasticsearch_curator_logging_blacklist|join("','") }}' ]

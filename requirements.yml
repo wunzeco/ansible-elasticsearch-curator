@@ -1,0 +1,4 @@
+- src: wunzeco.java
+- src: wunzeco.elasticsearch
+- src: wunzeco.filebeat
+- src: wunzeco.logstash

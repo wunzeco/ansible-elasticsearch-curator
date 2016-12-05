@@ -1,0 +1,17 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  hosts: test-kitchen
+  requirements_path: requirements.yml
+  ansible_verbose: false
+  ansible_verbosity: 2
+
+platforms:
+  - name: ubuntu-14.04
+  - name: centos-7.2
+
+suites:
+  - name: default
