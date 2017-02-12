@@ -13,7 +13,7 @@ https://www.elastic.co/guide/en/elasticsearch/client/curator/4.2/examples.html
 - hosts: eshost
 
   vars:
-    elasticsearch_curator_version: 4.2.3
+    elasticsearch_curator_version: 4.2.6
     elasticsearch_curator_client_hosts: localhost
     elasticsearch_curator_client_master_only: True    # if you want to curator to run ONLY on master
     elasticsearch_curator_actions:
