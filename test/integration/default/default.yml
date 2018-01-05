@@ -8,16 +8,17 @@
     java_package: "{{ java_package_by_os_family[ansible_os_family|lower] }}"
     elasticsearch_cluster_name: kitchenCluster
     elasticsearch_network_host: 0.0.0.0
-    filebeat_prospectors: 
+    filebeat_prospectors:
       - paths: [ "/var/log/*log" ]
     filebeat_outputs:
       logstash:
         hosts: [ "localhost:5044" ]
     filebeat_logging:
       to_syslog: true
+
     logstash_version_by_os_family:
-      debian: '1:2.2.4-1'
-      redhat: '2.4.0'
+      debian: '1:6.1.0-1'
+      redhat: '6.1.1'
     logstash_version: "{{ logstash_version_by_os_family[ansible_os_family|lower] }}"
     logstash_heap_size: "256m"
     logstash_input_configs:
@@ -133,5 +134,5 @@
       month:   '*'
 
 
-  roles: 
+  roles:
     - ansible-elasticsearch-curator
