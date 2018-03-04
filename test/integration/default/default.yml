@@ -6,6 +6,7 @@
       debian: 'openjdk-8-jdk'
       redhat: 'java-1.8.0-openjdk'
     java_package: "{{ java_package_by_os_family[ansible_os_family|lower] }}"
+    elasticsearch_version: 6.2.2
     elasticsearch_cluster_name: kitchenCluster
     elasticsearch_network_host: 0.0.0.0
     filebeat_prospectors:
@@ -17,8 +18,8 @@
       to_syslog: true
 
     logstash_version_by_os_family:
-      debian: '1:6.1.0-1'
-      redhat: '6.1.1'
+      debian: '1:6.2.2-1'
+      redhat: '6.2.2'
     logstash_version: "{{ logstash_version_by_os_family[ansible_os_family|lower] }}"
     logstash_heap_size: "256m"
     logstash_input_configs:
