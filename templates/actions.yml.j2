@@ -1,7 +1,7 @@
 actions:
 {% for obj in elasticsearch_curator_actions  %}
   {{ loop.index }}:
-{% for key,value in obj.iteritems() %}
+{% for key,value in obj|dictsort %}
 
 {#- ACTION #}
 {% if key == 'action' %}
@@ -19,15 +19,15 @@ actions:
 {#- OPTIONS #}
 {% if key == 'options' %}
     options:
-{% for k,v in value.iteritems() %}
+{% for k,v in value|dictsort %}
 {% if k == 'extra_settings' and v %}
       extra_settings:
-{% for sk,sv in v.iteritems() %}
+{% for sk,sv in v|dictsort %}
 {% if sv is string or sv is number %}
         {{ sk }}: {{ sv }}
 {% else %}
         {{ sk }}:
-{% for sub_sk,sub_sv in sv.iteritems() %}
+{% for sub_sk,sub_sv in sv|dictsort %}
           {{ sub_sk }}: {{ sub_sv }}
 {% endfor %}
 {% endif %}
@@ -44,7 +44,7 @@ actions:
     filters:
 {% for filter in value %}
       -
-{% for k,v in filter.iteritems() %}
+{% for k,v in filter|dictsort %}
         {{ k }}: {{ v }}
 {% endfor %}
 {% endfor %}
@@ -57,7 +57,7 @@ actions:
       filters:
 {% for filter in value.filters %}
         -
-{% for k,v in filter.iteritems() %}
+{% for k,v in filter|dictsort %}
           {{ k }}: {{ v }}
 {% endfor %}
 {% endfor %}
@@ -70,7 +70,7 @@ actions:
       filters:
 {% for filter in value.filters %}
         -
-{% for k,v in filter.iteritems() %}
+{% for k,v in filter|dictsort %}
           {{ k }}: {{ v }}
 {% endfor %}
 {% endfor %}
