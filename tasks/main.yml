@@ -1,5 +1,8 @@
 ---
 
+- name: include preflight tasks
+  include: preflight.yaml
+
 # Install python-pip
 - name: Install python-pip | Debian
   apt: name=python-pip state=present
@@ -48,6 +51,6 @@
     weekday: "{{ elasticsearch_curator_cron_job.weekday|default('*') }}"
     month:   "{{ elasticsearch_curator_cron_job.month|default('*') }}"
     user:    "{{ elasticsearch_curator_cron_job.user|default('root') }}"
-    job:     "/usr/local/bin/curator --config {{ elasticsearch_curator_conf_dir }}/curator.yml {{ elasticsearch_curator_conf_dir }}/actions.yml"
+    job:     "{{ curator_bin_path }} --config {{ elasticsearch_curator_conf_dir }}/curator.yml {{ elasticsearch_curator_conf_dir }}/actions.yml"
     cron_file: elasticsearch-curator
   when: elasticsearch_curator_cron_job
