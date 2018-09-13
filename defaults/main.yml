@@ -59,3 +59,5 @@ elasticsearch_curator_cron_job: {}
 #  weekday: 6
 #  month:   '*'
 #  user:    root
+
+elasticsearch_curator_cron_job_command: "/usr/local/bin/curator --config {{ elasticsearch_curator_conf_dir }}/curator.yml {{ elasticsearch_curator_conf_dir }}/actions.yml"
