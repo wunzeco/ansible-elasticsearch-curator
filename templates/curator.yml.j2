@@ -12,11 +12,11 @@ client:
   use_ssl: {{ elasticsearch_curator_client_use_ssl|default(False) }}
   certificate: {{ elasticsearch_curator_client_certificate|default('') }}
   client_cert: {{ elasticsearch_curator_client_client_cert|default('') }}
-  client_key: {{ elasticsearch_curator_client_client_cert|default('') }}
+  client_key: {{ elasticsearch_curator_client_client_key|default('') }}
   aws_key: {{ elasticsearch_curator_client_aws_key|default('') }}
   aws_secret_key: {{ elasticsearch_curator_client_aws_secret_key|default('') }}
   aws_region: {{ elasticsearch_curator_client_aws_region|default('') }}
-  ssl_no_validate: {{ elasticsearch_curator_client_ssl_no_validation|default(False) }}
+  ssl_no_validate: {{ elasticsearch_curator_client_ssl_no_validate|default(False) }}
   http_auth: {{ elasticsearch_curator_client_http_auth|default('') }}
   timeout: {{ elasticsearch_curator_client_timeout|default(30) }}
   master_only: {{ elasticsearch_curator_client_master_only|default(False) }}
