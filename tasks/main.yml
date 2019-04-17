@@ -1,5 +1,8 @@
 ---
 
+- name: include preflight tasks
+  include: preflight.yaml
+
 # Install python-pip
 - name: Install python-pip | Debian
   apt: name=python-pip state=present
