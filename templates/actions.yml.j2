@@ -19,23 +19,7 @@ actions:
 {#- OPTIONS #}
 {% if key == 'options' %}
     options:
-{% for k,v in value|dictsort %}
-{% if k == 'extra_settings' and v %}
-      extra_settings:
-{% for sk,sv in v|dictsort %}
-{% if sv is string or sv is number %}
-        {{ sk }}: {{ sv }}
-{% else %}
-        {{ sk }}:
-{% for sub_sk,sub_sv in sv|dictsort %}
-          {{ sub_sk }}: {{ sub_sv }}
-{% endfor %}
-{% endif %}
-{% endfor %}
-{% else %}
-      {{ k }}: {{ v }}
-{% endif -%}
-{% endfor -%}
+{{ value | to_nice_yaml | indent(6, first=True) }}
 {% endif %}
 {# OPTIONS -#}
 
